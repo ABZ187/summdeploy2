@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <script src="../static/js/app.js"></script>
+  <link rel="stylesheet" href="../static/css/style_login.css"/>
+  <link rel="icon" href="../static/images/logo.png" type="image/icon type"/>
+
+  <title>Sign up Form</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+       <form method="POST" action="" class="sign-in-form">{% csrf_token %}
+          <h2 class="title">Sign up</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+<!--         <input type="text" placeholder="Username" >-->
+              {{ form.username }}
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+<!--            <input type="email" placeholder="Email" />-->
+              {{ form.email }}
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+<!--            <input type="password" placeholder="Password" />-->
+              {{form.password1 }}
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+<!--            <input type="password" placeholder="Re enter  password" />-->
+              {{form.password2 }}
+          </div>
+           <input type="submit" name="signup" class="btn" value="Sign up" />
+           <h3>{% for message in messages %}
+               <p id ="messages">{{message}}</p></h3>
+				{% endfor %}
+          <p class="social-text">Or Sign up with social platforms</p>
+          <div class="social-media">
+            <a href="https://www.facebook.com/campaign/landing.php?campaign_id=14884913640&extra_1=s%7Cc%7C589460569900%7Ce%7Cfacebook%20login%7C&placement=&creative=589460569900&keyword=facebook%20login&partner_id=googlesem&extra_2=campaignid%3D14884913640%26adgroupid%3D128696221912%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-1409285535%26loc_physical_ms%3D1007805%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gclid=EAIaIQobChMI1_C8kIbB-AIVBpJmAh3B5wuuEAAYASAAEgLfb_D_BwE" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/?lang=en" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://accounts.google.com/servicelogin" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="https://in.linkedin.com/?trk=IN-SEM_google-adwords_Jordan-brand-sign-up&mcid=6844056167778418688&trk2=ga_campid=14650114791_asid=127961666580_crid=545833659352_kw=linkedin_d=c_tid=kwd-285981853_n=g_mt=p_geo=1007805_slid=&gclid=EAIaIQobChMIn6yF74bB-AIVEQ4rCh1kJQaeEAAYASAAEgLMGPD_BwE&gclsrc=aw.ds" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>One of us ?</h3>
+          <p>
+
+          </p>
+            <a href="/login">
+          <button class="btn transparent" id="sign-in-btn">
+            Sign in
+          </button></a>
+        </div>
+        <img src="img/register.svg" class="image" alt="" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

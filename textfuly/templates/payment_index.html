@@ -1,0 +1,177 @@
+{% extends 'payment_template.html' %}
+{% load static %}
+{% block content %}
+{% load django-crispy-forms_tags %}
+
+	<style type="text/css">
+		/**
+		 * The CSS shown here will not be introduced in the Quickstart guide, but shows
+		 * how you can use CSS to style your Element's container.
+		 */
+		.StripeElement {
+		  box-sizing: border-box;
+
+		  height: 40px;
+
+		  padding: 10px 12px;
+
+		  border: 1px solid transparent;
+		  border-radius: 4px;
+		  background-color: white;
+
+		  box-shadow: 0 1px 3px 0 #e6ebf1;
+		  -webkit-transition: box-shadow 150ms ease;
+		  transition: box-shadow 150ms ease;
+		}
+
+		.StripeElement--focus {
+		  box-shadow: 0 1px 3px 0 #cfd7df;
+		}
+
+		.StripeElement--invalid {
+		  border-color: #fa755a;
+		}
+
+		.StripeElement--webkit-autofill {
+		  background-color: #fefde5 !important;
+		}
+	</style>
+
+
+	<script src="https://js.stripe.com/v3/"></script>
+        <a href="{% url 'home' %}" class="btn btn-outline-dark btn-sm m-1">Home </a>
+
+	<div id="container">
+		<div class="column-6">
+			<div id="left-wrapper">
+				<img id="profile-pic" src="{% static 'images/logo.png' %}">
+				<div id="left-wrapper-header">
+					<h3>Buy Us Coffee?</h3>
+					<h5>One Time Donation</h5>
+				</div>
+				<div style="clear:left"></div>
+				<hr>
+				<!-- Add form here -->
+				<div class="container" style="width: 90%; background-color: #87CEEB;border-radius: 50px; padding: 30px;">
+
+					{% crispy form %}
+				{% if payment %}
+					<form action="{% url 'payment-status' %}" method="POST">
+						{% csrf_token %}
+						<script
+								src="https://checkout.razorpay.com/v1/checkout.js"
+								data-key="rzp_test_8x26bWBtiWo6OR"
+								data-amount="{{ payment.amount }}"
+								data-currency="{{ payment.currency }}"
+								data-order_id="{{ payment.id }}"
+								data-buttontext="Pay with Razorpay"
+								data-name="CybraneX Summarizer"
+								data-description="Thanks for your support"
+								data-image="https://i.ibb.co/5jDJnTN/logo.png"
+								data-prefill.name="{{ payment.name }}"
+								data-prefill.email="you@example.com"
+								data-theme.color="#000000"
+						></script>
+						<input type="hidden" custom="Hidden Element" name="hidden">
+					</form>
+        		{% endif %}
+
+			</div>
+		</div>
+
+		<div class="column-6">
+			<div id="right-wrapper">
+				<h3>If we have helped you anyhow with your work, please consider supporting our efforts</h3>
+
+				<p>Please visit our website, and our social media pages, Thank you!</p>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+				<a href="https://www.facebook.com/cybranex/" class="fa fa-facebook"></a>
+				<a href="https://twitter.com/_CybraneX_" class="fa fa-twitter"></a>
+				<a href="https://www.instagram.com/cybranex/" class="fa fa-instagram"></a>
+                <a href="https://www.linkedin.com/company/cybranex/about/" class="fa fa-linkedin"></a>
+				<hr>
+				<a href="https://www.cybranex.com/" target="_blank" class="myButton">visit cybraneX</a>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<script>
+		// Create a Stripe client.
+		var stripe = Stripe('pk_test_51L1EZTSDrl4Iz9dZ0qLsSv1ZeyR9LHrhMljg1eHnCF0KkUAaRKUasa0szL6nSVPBFQTSBa2zgPWDNG5jh6WRoHOr00OX5gPVBu');
+
+		// Create an instance of Elements.
+		var elements = stripe.elements();
+
+		// Custom styling can be passed to options when creating an Element.
+		// (Note that this demo uses a wider set of styles than the guide below.)
+		var style = {
+		  base: {
+		    color: '#32325d',
+		    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+		    fontSmoothing: 'antialiased',
+		    fontSize: '16px',
+		    '::placeholder': {
+		      color: '#aab7c4'
+		    }
+		  },
+		  invalid: {
+		    color: '#fa755a',
+		    iconColor: '#fa755a'
+		  }
+		};
+
+		// Create an instance of the card Element.
+		var card = elements.create('card', {style: style});
+
+		// Add an instance of the card Element into the `card-element` <div>.
+		card.mount('#card-element');
+
+		// Handle real-time validation errors from the card Element.
+		card.addEventListener('change', function(event) {
+		  var displayError = document.getElementById('card-errors');
+		  if (event.error) {
+		    displayError.textContent = event.error.message;
+		  } else {
+		    displayError.textContent = '';
+		  }
+		});
+
+		// Handle form submission.
+		var form = document.getElementById('payment-form');
+		form.addEventListener('submit', function(event) {
+		  event.preventDefault();
+
+		  stripe.createToken(card).then(function(result) {
+		    if (result.error) {
+		      // Inform the user if there was an error.
+		      var errorElement = document.getElementById('card-errors');
+		      errorElement.textContent = result.error.message;
+		    } else {
+		      // Send the token to your server.
+		      stripeTokenHandler(result.token);
+		    }
+		  });
+		});
+
+		// Submit the form with the token ID.
+		function stripeTokenHandler(token) {
+		  // Insert the token ID into the form so it gets submitted to the server
+		  var form = document.getElementById('payment-form');
+		  var hiddenInput = document.createElement('input');
+		  hiddenInput.setAttribute('type', 'hidden');
+		  hiddenInput.setAttribute('name', 'stripeToken');
+		  hiddenInput.setAttribute('value', token.id);
+		  form.appendChild(hiddenInput);
+
+		  // Submit the form
+		  form.submit();
+		}
+	</script>
+
+{% endblock content %}

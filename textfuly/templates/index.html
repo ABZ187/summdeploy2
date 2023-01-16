@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %} Text Summarizer | Home {% endblock %}
+{% block body %}
+         <!-- first textarea -->
+
+         <div class="container px-10 mx-auto">
+            <div class="Text p-2 md-5">
+                <div class="bg-blue-100 p-4 rounded-lg background">
+                    <form action = "" method = "post" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        <textarea name="text" class="form-control"
+                        placeholder="Enter your text here"  id="input" rows="60" cols="8" >{% if text %}{{text}}{% endif %}</textarea>
+                        
+                    <div class="reactions mt-6">
+                        <input type="file" id="myfile" name="myfile" class="file-input">
+                        {% comment %} <h3>Input type PDF,  Word DOCs,  text,URL, Images, Link </h3> {% endcomment %}
+                        <a>
+                        <input type="url" id="fname"  class="url-insert"  name="url" placeholder="add link" >
+                        </a>
+                        <div class="dropdown ml-16">
+                            <button class="drop-btn">Get Summary</button>
+                            <div class="dropdown-content">
+                                <a><input class="input" type="submit" value="Short" name ="short"></a>
+                                <a><input class="input" type="submit" value="Medium" name ="medium"></a>
+                                <a><input class="input" type="submit" value="Long" name ="long"></a>
+                            </div>
+                        </div>
+                    </div>
+                        <div class='mx-auto'>
+                            {% comment %} Words in summary: {% if count %}{{count}}{% endif %}<br> {% endcomment %}
+                            {% if len%}{{len}}{% endif %}
+                            {% if text_len%}{{text_len}}{% endif %}
+                             <span> </span> Words
+                        </div>
+                        <!--      error messages-->
+                        <br><br><b>{% for message in messages %}<p id ="messages2">{{message}}</p>{% endfor %}</b>
+
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <a class="btn flex mb-2"></a>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- second textarea -->
+                <div class="Text p-2 md-5 w-full">
+                    <div class="bg-blue-100 p-4 rounded-lg background" >
+                        <textarea name="text" class="form-control" data-gram="False"
+                                  placeholder="Text Phariser will rewrite your text" id="output" >{% if summary %}{{summary}}{% endif %}</textarea><br><br>
+                        <a href="{% url 'downloadPdf' %}" class="btn_2 flex mb-4 mx-auto">
+                            <button class="Download_btn mt-2">Download Summary</button>
+                        </a>
+                    </div>
+                </div>
+        </div>
+{% endblock %}

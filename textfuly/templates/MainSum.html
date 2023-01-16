@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=500, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="MainSum.css" />
+
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="MainSum.js" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="text-sum">
+    <div class="container flex flex-col">
+      <div class="nav justify-center fixed">
+        <img src="Original.png" alt="Original" alt="Avatar" style="">
+        <nav class="navbar">
+          <div class="container-fluid">
+            <h2 class="font-bold text-2xl">Text Summarizer</h2>
+          </div>
+        </nav>
+      </div>
+
+      <div class="sidebar ">
+        <div class="logo-details">
+          <!-- <img <a href="https://ibb.co/qdFzYWs"><img src="Original.png" alt="Original"
+          alt="Avatar" style="width:5px height=10px"> -->
+          <div class="logo_name">CybraneX</div>
+          <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <br>
+        <ul class="nav-list">
+          <!-- <li>
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Search...">
+            <span class="tooltip">Search</span>
+          </li> -->
+          <li>
+            <a href="#">
+              <i class='bx bx-text'></i>
+              <span class="links_name">Summarize</span>
+            </a>
+            <span class="tooltip">Summarize</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-grid-alt'></i>
+              <span class="links_name">Paraphraser</span>
+            </a>
+            <span class="tooltip">Comming soon</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-user'></i>
+              <span class="links_name">Grammer Checker</span>
+            </a>
+            <span class="tooltip">Comming soon</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-chat'></i>
+              <span class="links_name">Plagirism Checker</span>
+            </a>
+            <span class="tooltip">Comming soon</span>
+          </li>
+          <li>
+            <a href="{% url 'get-premium' %}">
+              <i class='bx bx-diamond'></i>
+              <span class="links_name">Premimum</span>
+            </a>
+            <span class="tooltip">Premimum</span>
+          </li>
+
+          <li>
+            <a href="{% url 'payment' %}">
+              <i class='bx bxs-coffee-alt'></i>
+              <span class="links_name">Buy Me a Coffiee</span>
+            </a>
+            <span class="tooltip">Buy Me a Coffiee</span>
+          </li>
+
+          <li class="profile">
+            <div class="profile-details">
+              <!--<img src="profile.jpg" alt="profileImg">-->
+              <div class="name_job">
+                <div class="name">Text Summarizer</div>
+                <div class="job">CybraneX</div>
+              </div>
+            </div>
+            <i class='bx bx-log-out' id="log_out"></i>
+          </li>
+        </ul>
+      </div>
+      <section class="home-section pl-8">
+        <div class="text-area flex-row  justify-center relative">
+          <div class="content">
+            <button class="button-173" role="button"><i class='bx bxs-coffee'></i>Buy Me a Coffiee </button>
+            <a href="{% url 'get-premium' %}">
+              <button class="button-172" role="button"><i class='bx bx-diamond'> </i>Premimum </button></a>
+
+            <button class="main_div"><a href="loginsignup/login.html">login/signup</a></button>
+          </div>
+
+
+          <div class="wrapper flex-col mt-4 rounded-3 3xl">
+            <div class="text-box -ml-5 ">
+              <section class="text-gray-600 body-font">
+                <div class="content mx-auto">
+                  <div class="textbox1 flex flex-row -m-4 ">
+                    <div class="type line p-3 md:w-1/2 ">
+                      <div class="h-full  rounded">
+
+                        <textarea class="comment" name="text"
+                          placeholder="Text Summarizer will Summarize your text. Start by writing or pasting something here and then press the 'Get Summary' button."></textarea>
+
+                        <hr class="divide1">
+                        <div class="buttons flex mt-4 ml-4">
+                          <div class="upload-btn">
+
+                            <button class="" role="button">Upload</button>
+
+                            <input type="file" name="myfile" />
+                          </div>
+                          <input class="url ml-4 rounded p-2" placeholder="Enter your url" type="text" name="url" />
+
+                          <div class=" dropmenu ml-4">
+
+                            <button class="button-17 ">Get Summary</button>
+                            <div class="dropmenu-content">
+                              <a><input type="submit" value="short" name="short" /></a>
+                              <a><input type="submit" value="medium" name="medium" /></a>
+                              <a><input type="submit" value="long" name="long" /></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="type p-4 md:w-1/2 w-full">
+                      <div class="h-full rounded">
+                        <textarea class="comment" placeholder="Text Phariser will rewrite your text"></textarea>
+
+                        <hr class="divide">
+                        <div class="tool button-171">
+                          <a href="{% url 'downloadPdf' %}" download><i class='bx bx-download'></i> Download</a>
+                          <span class="tooltext">Tooltip text</span>
+                        </div>
+
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+          </div>
+        </div>
+        <br><br><br>
+        <br>
+        <section class="new-sec body-font mx-auto">
+          <div class="container px-5 py-20">
+            <div class="flex flex-col">
+              <div class="flex flex-wrap sm:flex-row flex-row py-6 mb-12 ">
+                <h1 class="text-gray-900  title-font text-2xl mb-2 sm:mb-0 mx-auto">Cut your writing time by more than
+                  half
+                  <br>using Text Summarizer Premium
+                </h1>
+              </div>
+            </div>
+            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 mx-auto justify-center " >
+              <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                <h2 class="text-sm title-font text-gray-900 text-left ml-6 my-2">ACCELERATE</h2>
+                <div class="rounded-lg h-64 overflow-hidden">
+                  <img alt="content" class="object-cover object-center w-fit justify-center" src="newWords.svg">
+                </div>
+                <h2 class="text-lg font-medium title-font text-gray-900 text-left ml-6">Improve your speed</h2>
+                <p class="text-base leading-relaxed mt-2 text-left ml-6">Paraphrase an unlimited number of<br> words in
+                  one click, with a faster processing rate<br> to get more done in less time..</p>
+              </div>
+              <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                <h2 class="text-sm title-font text-gray-900 text-left ml-6 my-2">CREATE</h2>
+                <div class="rounded-lg h-64 overflow-hidden">
+                  <img alt="content" class="object-cover object-center w-fit justify-center "
+                    src="newCreate.svg">
+                </div>
+                <h2 class="text-lg font-medium title-font text-gray-900 text-left ml-6">Increase Changes</h2>
+                <p class="text-base leading-relaxed mt-2 text-left ml-6">Unlock the final Synonyms setting to<br> maximize the changes to your text.</p>
+                
+              </div>
+              <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                <h2 class="text-sm title-font text-gray-900 text-left ml-6 my-2">DELIVER A CLEAR MESSAGE</h2>
+                <div class="rounded-lg h-64 overflow-hidden">
+                  <img alt="content" class="object-cover object-center w-fit justify-center "
+                    src="allModesNew.svg">
+                </div>
+                <h2 class="text-xl font-medium title-font text-gray-900 text-left ml-6">Improve Meaning</h2>
+                <p class="text-base leading-relaxed mt-2 text-left ml-6">Unlock five more modes to give yourself<br> even more flexibility in your writing.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+         <footer class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap md:text-left text-center order-first">
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">HEADQUARTER</h2>
+        <nav class="list-none mb-10"> 
+          <li>
+            <a class="text-gray-600 hover:text-gray-800">Knox Plaza, A209, 2nd,<BR> Chincholi Bunder Rd, Mindspace,<br> Malad West, Mumbai, Maharashtra <br> 400064</a>
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CONTACT INFO</h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-600 hover:text-gray-800">info@gmail.com</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800">Address</a>
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">PAGES</h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="#" class="text-gray-600 hover:text-gray-800">AFFILIATE</a>
+          </li>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 mx-auto">SUBSCRIBE</h2>
+        <div class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
+          <div class="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mx-auto">
+            <input type="text" id="footer-field" placeholder="Enter Email" name="footer-field" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 mx-auto text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+          <button class="lg:mt-2 xl:mt-0 flex-shrink-0 flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded mx-auto my-3 ">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-100">
+    <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        
+        <span class="ml-3 text-xl">Text Summarizer</span>
+      </a>
+      <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-2">© 2020 Text Summarizer
+        <!-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a> -->
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+        <a class="text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+  </section>
+  </div>
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+
+    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+      if (sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+      }
+    }
+  </script>
+
+
+
+
+</body>
+
+</html>

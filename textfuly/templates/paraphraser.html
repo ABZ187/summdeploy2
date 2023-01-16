@@ -1,0 +1,38 @@
+<form action = "" method = "post" enctype="multipart/form-data">
+          {% csrf_token %}
+         Enter your text here:
+          <br><textarea  name = "text" rows = "8" cols = "60">
+          {% if text %}
+                {{text}}
+          {% endif %}
+         </textarea><br>
+
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+</style>
+</head>
+<body>
+
+<!--text box-->
+<div class="dropdown">
+  <button class="dropbtn">Paraphrase</button>
+  <div class="dropdown-content">
+<!--    <a><input type="submit" value="default" name ="recommended"></a>-->
+  </div>
+<!--    word length-->
+    <a>words: {{ len }}</a>
+
+</div>
+
+      <p></p>
+
+      </form>
+<!--      error messages-->
+      {% for message in messages %}
+                <p id ="messages2">{{message}}</p>
+        {% endfor %}
+
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
